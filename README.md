@@ -1,3 +1,3 @@
 # Horizon-Software-Deliverer-Strong
-For anyone who has been suffering with servers, I prestent Horizon-Software-Deliverer-Strong to you! This is the strong version of the build, but longer. If you want to use the slim it will come soon!
+For anyone who has been suffering with servers, I present Horizon-Software-Deliverer-Strong to you! This is the strong version of the build, but longer. If you want to use the slim it will come soon!
 This Software Deliverer was created by Shocks654, for license go to the "MIT License" menu. The idea was inspired by Vue. It can still be stuck on servers so if you experience irregularitys a lot of times get into contact with the developer.
