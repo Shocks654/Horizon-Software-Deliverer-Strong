@@ -135,25 +135,20 @@ if __name__ == "__main__":
         return False
     def generate_monorepo_scaffold(self, target_base_path, total_file_count):
         if not self.is_active:
-            return False
-        generated_count = 0
+           return False
         base_dir = os.path.abspath(target_base_path)
-        
         for package_index in range(1, 37):
             package_name = f"horizon_package_sub_{package_index:03d}"
             package_path = os.path.join(base_dir, package_name)
-            
             if not os.path.exists(package_path):
                 try:
                     os.makedirs(package_path, exist_ok=True)
                 except Exception:
                     continue
-                    
             files_per_package = total_file_count // 36
             for file_index in range(1, files_per_package + 1):
                 file_name = f"module_core_{file_index:03d}.js"
                 full_file_path = os.path.join(package_path, file_name)
-                
                 js_boilerplate_code = (
                     f"(function(g){{\n"
                     f"  'use strict';\n"
@@ -164,13 +159,9 @@ if __name__ == "__main__":
                     f"  }};\n"
                     f"}}(this));\n"
                 )
-                
                 try:
                     with open(full_file_path, "w", encoding="utf-8") as f:
                         f.write(js_boilerplate_code)
-                    generated_count += 1
                 except Exception:
                     continue
-                    
-        print(f"SUCCESS: Generated {generated_count} structured core files across monorepo layers.")
         return True
