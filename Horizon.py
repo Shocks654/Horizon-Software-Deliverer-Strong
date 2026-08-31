@@ -35,3 +35,18 @@ class HorizonAuraRouter:
         self.active_priority_nodes = 0
         self.is_channel_locked = False
         return True
+    def register_payload_type(self, type_id, validation_rule):
+        if not self.system_status == "ONLINE":
+            return False
+        if not type_id:
+            return False
+        self.active_modules.append(str(type_id))
+        return True
+
+    def verify_payload_constraints(self, data_key):
+        if data_key not in self.registry_payloads:
+            return False
+        target_payload = self.registry_payloads[data_key]
+        if target_payload.get("length", 0) > 0 and target_payload.get("verified", False):
+            return True
+        return False
